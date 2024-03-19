@@ -1,35 +1,6 @@
 from models.__init__ import CURSOR, CONN
 from models.review import Review
 
-def get_reviews():
-    """Returns a list of all reviews in the database"""
-    cursor = CURSOR.execute("SELECT * FROM Reviews")
-    return [Review(*row) for row in cursor.fetchall()]  
-
-def add_review(title, description):
-    """Adds a new review to the database with given title and description"""
-    query = "INSERT INTO Reviews (Title, Description) VALUES (?, ?)"
-    CURSOR.execute(query, (title, description))
-    CONN.commit()
-    
-def delete_review(id):
-    """Deletes the review with the given id from the database"""
-    query = 'DELETE FROM Reviews WHERE ID=?'
-    CURSOR.execute(query, (id,))
-    CONN.commit()
-    
-def update_review(id, title="", description=""):
-    """Updates the fields of the review with the given id if they are not empty"""
-    values = []
-    fields = ['Title', 'Description']
-    for field, value in zip(fields, [title, description]):
-        if value:
-            values.append(f'{field}="{value}"')
-    values_str = ", ".join(values)
-    query = f'UPDATE Reviews SET {values_str} WHERE ID=?'
-    CURSOR.execute(query, (id,))
-    CONN.commit()
-
 class Customer:
     all = []
     

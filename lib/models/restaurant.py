@@ -1,48 +1,6 @@
 from models.__init__ import CURSOR, CONN
 from models.review import Review
 
-def get_all_reviews():
-    """Retrieve all reviews in the database."""
-    cursor = CURSOR(CONN)
-    query = "SELECT * FROM review;"
-    result = cursor.execute(query).fetchall()
-    return [Review(*args) for args in result]
-
-def add_new_review(product_id, user_id, rating, content):
-    '''Add a new review to the database'''
-    product_id = int(product_id)
-    user_id = int(user_id)
-    review = Review(None, product_id, user_id, rating, content)
-    cursor = CURSOR(CONN)
-    query = "INSERT INTO review (product_id, user_id, rating, content) VALUES(?,?,?,?)"
-    cursor.execute(query, (review.product_id, review.user_id, review.rating, review.content))
-    CONN.commit()
-    return review 
-
-def delete_a_review(review_id):
-    '''Delete a specific review given its id'''
-    review_id = int(review_id)
-    cursor = CURSOR(CONN)
-    query ="DELETE FROM review WHERE id=?"
-    cursor.execute(query, (review_id,))
-    CONN.commit()  
-
-def search_reviews_by_keyword(keyword):
-    '''Search for reviews containing a certain keyword'''
-    # TODO: Implement this function
-    pass
-        
-def search_reviews_in_range(minimum, maximum):
-    '''Get all reviews with ratings within a range''' 
-    min_val = float(minimum)
-    max_val = float(maximum)
-    if min_val > max_val:
-        min_val, max_val = max_val, min_val
-    cursor = CURSOR(CONN)
-    query = 'SELECT * FROM review WHERE rating BETWEEN ? AND ?'
-    results = cursor.execute(query, (min_val, max_val)).fetchall()
-    return [Review(*args) for args in results]
-
 class Restaurant:
     all = []
 
