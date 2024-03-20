@@ -13,10 +13,11 @@ def seed_database():
     Review.create_table()
 
 # #seeding customer table
-    Customer.create("Kelvin", "Langat")
+    Customer.create("Dennis", "Kipkirui")
     Customer.create("Cheruiyot","Rop")
 #seeding restaurants
     Restaurant.create("The Pizza Place", 2)
+    Restaurant.create("The Dawn", 3)
 #seeding reviews
     Review.create(1, 1, 5)
 
