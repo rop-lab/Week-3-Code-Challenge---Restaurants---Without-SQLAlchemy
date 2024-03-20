@@ -1,6 +1,6 @@
 # Week-3-Code-Challenge---Restaurants---Without-SQLAlchemy
 
-# customer.py
+## customer.py
 -This Python code provides functionality for managing customers and their reviews in a restaurant management system. The system uses SQLite for data storage and provides various methods for interacting with customer data.
 
 # Features
@@ -36,7 +36,7 @@ __init__: Initializes a customer object with first name, last name, and optional
 - delete_reviews: Deletes reviews for a specific restaurant.
 - get_by_id, instance_from_db, get_all: Methods for retrieving customer data from the database.
 
-# restaurant.py
+## restaurant.py
 This file is used to define the Restaurant
 - This Python code provides functionality for managing restaurants and their reviews in a restaurant review management system. The system uses SQLite for data storage and provides various methods for interacting with restaurant data.
 
@@ -71,6 +71,31 @@ __str__: Returns a string representation of the restaurant.
 - fanciest: Retrieves the fanciest restaurant based on price.
 - all_reviews: Retrieves all reviews for the restaurant.
 - get_by_id, instance_from_db, get_all: Methods for retrieving restaurant data from the database.
+
+## review.py
+This Python code provides functionality for managing reviews in a review management system. It includes features to create, retrieve, and manage reviews for customers and restaurants. The system uses SQLite for data storage and provides various methods for interacting with review data.
+
+# Usage
+
+1. Import the module: `from models.
+- The Review class inherits from this model.
+- A Review can be created with attributes such as rating (integer), title (string), and body (string). It also has a method called ' 
+- It has additional attributes such as rating and comment.
+- The __init__ method initializes a review with these attributes plus an optional id.
+- The __str__ method returns a string representation of the review.
+
+# Code Structure
+
+- The __init__ method initializes a review with these attributes plus an optional id.
+- The __str__ method returns a string representation of the review.
+- save: Saves the review to the database.
+- get_by_id: Retrieves a review  from the database using its id.
+- delete: Deletes a review from the database.
+- instance_from_db: Creates an instance of the Review class from retrieved data from the database.
+- get_all: Gets all reviews from the database.
+
+
+
 
 
 
